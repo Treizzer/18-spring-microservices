@@ -1,0 +1,37 @@
+# spring.application.name=microservice-gateway
+# La seguridad de los microservicios se debe de manejar
+# en api gateway / microservice-gateway
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: student
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/student/**
+        - id: course
+          uri: http://localhost:9090
+          predicates:
+            - Path=/api/course/**
+
+  # config:
+  #   import: optional:configserver:http://localhost:8888
+
+# eureka:
+#   instance:
+#     hostname: localhost
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka

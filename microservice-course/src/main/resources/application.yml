@@ -1,0 +1,36 @@
+# spring.application.name=microservice-course
+
+# server:
+#   port: 9090
+
+spring:
+  application:
+    name: msvc-course
+  config:
+    import: optional:configserver:http://localhost:8888
+#   datasource:
+#     url: jdbc:postgresql://localhost:5432/course_db?useSSL=false&serverTimezone=UTC
+#     username: postgres
+#     password: 12345
+#     driver-class-name: org.postgresql.Driver
+
+#   jpa:
+#     generate-ddl: true
+#     hibernate:
+#       ddl-auto: create-drop
+# show-sql: true
+#   devtools:
+#     livereload:
+#       enabled: true
+
+#   security:
+#     user:
+#       name: treizer
+#       password: 1234
+
+# eureka:
+#   instance:
+#     hostname: localhost
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka

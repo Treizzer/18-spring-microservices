@@ -1,0 +1,39 @@
+# spring.application.name=microservice-student
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: msvc-student
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/student_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrival=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    # show-sql: true
+
+  # config:
+  #   import: optional:configserver:http://localhost:8888
+
+#   devtools:
+#     livereload:
+#       enabled: true
+
+#   security:
+#     user:
+#       name: treizer
+#       password: 1234
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
